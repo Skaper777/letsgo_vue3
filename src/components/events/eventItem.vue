@@ -18,10 +18,6 @@ export default defineComponent({
     }
   },
 
-  data() {
-    return {}
-  },
-
   setup(props, context) {    
     const store = useStore()
 

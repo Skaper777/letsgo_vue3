@@ -9,25 +9,31 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
-import { useStore } from 'vuex'
+import { defineComponent, PropType, watch, toRefs } from 'vue'
 import eventItem from './eventItem.vue'
+import { EventItem } from '@/types/EventItem.interface'
 
 export default defineComponent({
   name: 'eventsList',  
   components: {
     eventItem
   },  
-
-  setup(props, context) {
-    const store = useStore()
-    store.dispatch('loadEvents')  
-
-    let events = computed<Array<object>>(() => store.getters.getEvents)   
-
-    return {
-      events
+  props: {
+    events: {
+      type: Array as PropType<Array<EventItem>>,
+      default: () => ([]),
+      required: true
+    },
+    listType: {
+      validator: (value: string) => ['myList', 'commonList'].includes(value),      
+      default: 'commonList'
     }
+  },
+  
+  setup(props) {   
+    const {events} = toRefs(props)     
+
+    watch(events, () => console.log(events.value))   
   }
 })
 </script>
