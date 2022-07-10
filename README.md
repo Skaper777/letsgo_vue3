@@ -1,4 +1,4 @@
-# letsgo
+# learn vue 3
 
 ## Project setup
 ```
