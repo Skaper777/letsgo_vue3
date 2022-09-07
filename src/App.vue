@@ -1,22 +1,14 @@
-<template> 
-  <router-view/>
+<template>
+  <div class="app">
+   
+  </div> 
 </template>
 
-<style lang="scss">
-#app {
-  
-}
+<script setup lang="ts">
 
-nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+<style scoped lang="scss">
+
 </style>
