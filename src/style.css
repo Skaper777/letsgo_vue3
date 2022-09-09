@@ -15,6 +15,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.container { 
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,9 +32,7 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0; 
   min-width: 320px;
   min-height: 100vh;
 }
@@ -35,6 +40,12 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 button {
@@ -58,13 +69,6 @@ button:focus-visible {
 
 .card {
   padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
