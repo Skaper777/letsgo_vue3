@@ -1,8 +1,9 @@
 <template>
   <div class="event">
     <h3>{{event.title}}</h3>
+    <p>Type: {{event.type}}</p>
     <p>Members count: {{event.members}}</p>
-    <AppButton @click="eventHandler" btnText="Участвовать" />
+    <AppButton @click="eventHandler" :btnText="myList ? 'Leave' : 'Join'" />
   </div>
 </template>
 
@@ -11,14 +12,16 @@ import type { EventItem } from '../../types'
 import AppButton from '../ui/Button.vue'
 
 interface Props {
-  event: EventItem
+  event: EventItem,
+  myList: boolean
 }
+
+const emit = defineEmits(['eventHandler'])
+defineProps<Props>()
 
 function eventHandler() {
-  
+  return emit('eventHandler')
 }
-
-defineProps<Props>()
 
 </script>
 

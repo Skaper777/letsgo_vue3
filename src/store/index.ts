@@ -13,24 +13,28 @@ export const useEventsStore = defineStore('events', () => {
       {
         id: `event${Math.random()}`,
         title: 'Run',
-        members: 4
+        members: 4,
+        type: 'Workout'
       },
       {
         id: `event${Math.random()}`,
         title: 'Cycle',
-        members: 2
+        members: 2,
+        type: 'Workout'
       },
       {
         id: `event${Math.random()}`,
         title: 'Walk',
-        members: 10
+        members: 10,
+        type: 'Workout'
       }
     ],
     myEvents: [
       {
         id: `event${Math.random()}`,
         title: 'Own',
-        members: 1
+        members: 1,
+        type: 'Other'
       }
     ]
   })
@@ -38,8 +42,20 @@ export const useEventsStore = defineStore('events', () => {
   const events = computed(() => state.events as Array<EventItem>)
   const myEvents = computed(() => state.myEvents as Array<EventItem>)
 
+  function joinEvent(event: EventItem) {
+    state.events = state.events.filter((item: EventItem) => item.id !== event.id)
+    state.myEvents.push(event)    
+  }
+  
+  function leaveEvent(event: EventItem) {
+    state.myEvents = state.myEvents.filter((item: EventItem) => item.id !== event.id)
+    state.events.push(event)
+  }
+
   return {
     events,
-    myEvents
+    myEvents,
+    joinEvent,
+    leaveEvent
   }
 })

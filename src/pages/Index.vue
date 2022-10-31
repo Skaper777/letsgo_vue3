@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="events-container">
-      <EventsList title="Events" :events="events" />
-      <EventsList title="My events" :events="myEvents" />
+      <EventsList title="Events" :events="events" @listFunc="joinEvent" />
+      <EventsList title="My events" :events="myEvents" isMyList @listFunc="leaveEvent" />
     </div>    
   </div>
 </template>
@@ -14,6 +14,7 @@ import EventsList from '../components/events/EventsList.vue'
 
 const { events } = storeToRefs(useEventsStore())
 const { myEvents } = storeToRefs(useEventsStore())
+const { joinEvent, leaveEvent } = useEventsStore()
 
 </script>
 
@@ -21,7 +22,7 @@ const { myEvents } = storeToRefs(useEventsStore())
 .events-container {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
   justify-content: space-evenly;
 }
 </style>
