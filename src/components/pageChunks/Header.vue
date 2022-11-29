@@ -3,7 +3,7 @@
     <div class="container">
       <h1>LetsGo!</h1>
 
-     <AppButton class="btn" @click="" btnText="Войти" />
+     <AppButton class="btn" @click="" btnText="Sign In" />
     </div>    
   </header>
 </template>

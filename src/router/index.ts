@@ -6,6 +6,24 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: PageName.Index,
     component: () => import('../pages/Index.vue')
+  },
+  {
+    path: `/${PageName.Settings}`,
+    name: PageName.Settings,
+    redirect: `${PageName.Settings}/${PageName.SettingsInfo}`,
+    component: () => import('../pages/settings/Index.vue'),
+    children: [
+      {
+        path: `${PageName.SettingsInfo}`,
+        name: PageName.SettingsInfo,
+        component: () => import('../pages/settings/SettingsInfo.vue')
+      },
+      {
+        path: `${PageName.SettingsEvents}`,
+        name: PageName.SettingsEvents,
+        component: () => import('../pages/settings/SettingsEvents.vue')
+      }
+    ]
   }
 ]
 

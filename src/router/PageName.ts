@@ -1,3 +1,6 @@
 export enum PageName {
-  Index = 'Index'
+  Index = 'Index',
+  Settings = 'settings',
+  SettingsEvents = 'events',
+  SettingsInfo = 'info'
 }
