@@ -3,13 +3,22 @@
     <div class="container">
       <h1>LetsGo!</h1>
 
-     <AppButton class="btn" @click="" btnText="Sign In" />
-    </div>    
+     <AppButton class="btn" @click="openLoginPopup" btnText="Sign In" />
+    </div>   
+    
+    <LoginPopup/>
   </header>
 </template>
 
 <script setup lang="ts">
 import AppButton from '../ui/Button.vue'
+import LoginPopup from '../popups/LoginPopup.vue'
+import eventBus from '../../utils/eventBus'
+
+function openLoginPopup() {
+  eventBus.emit('openPopup')
+}
+
 </script>
 
 <style scoped lang="scss">
