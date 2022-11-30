@@ -2,20 +2,19 @@
   <header>
     <div class="container">
       <h1>LetsGo!</h1>
-
-     <AppButton class="btn" @click="openLoginPopup" btnText="Sign In" />
+      <AppButton class="btn" @click="openSignUpPopup" btnText="Sign Up" />
     </div>   
     
-    <LoginPopup/>
+    <SignUpPopup/>
   </header>
 </template>
 
 <script setup lang="ts">
 import AppButton from '../ui/Button.vue'
-import LoginPopup from '../popups/LoginPopup.vue'
+import SignUpPopup from '../popups/SignUpPopup.vue'
 import eventBus from '../../utils/eventBus'
 
-function openLoginPopup() {
+function openSignUpPopup() {
   eventBus.emit('openPopup')
 }
 

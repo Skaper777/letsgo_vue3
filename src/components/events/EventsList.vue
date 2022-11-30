@@ -1,5 +1,5 @@
 <template>
-  <div class="events-list" v-if="events.length">
+  <div :class="alone ? 'events-list events-list--alone' : 'events-list'" v-if="events.length">
     <h2>{{ props.title }}</h2>
     <ul v-if="events.length">
       <li v-for="event in events" :key="event.id">  
@@ -14,6 +14,10 @@ import Event from './Event.vue'
 import { EventItem } from '../../types/index'
 
 const props = defineProps({
+  alone: {
+    type: Boolean,
+    default: false
+  }, 
   events: {
     type: Array<EventItem>,
     default: () => []
@@ -37,5 +41,15 @@ function listHandler(event: EventItem) {
 .events-list {
   display: block;
   justify-self: center;
+
+  &--alone {
+    width: 100%;
+
+    ul {
+      display: grid;
+      grid-gap: 1.2em;
+      grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    }    
+  }
 }
 </style>

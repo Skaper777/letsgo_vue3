@@ -3,7 +3,7 @@
     <div class="login-popup">
       hello
 
-      <Button btnText="Login" @click="login" />
+      <Button btnText="Sign Up" :isLight="true" @click="signup" />
     </div>
   </Template> 
 </template>
@@ -14,7 +14,7 @@ import Template from './TemplatePopup.vue'
 import Button from '../ui/Button.vue'
 import eventBus from '../../utils/eventBus'
 
-function login() {
+function signup() {
   eventBus.emit('closePopup')
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="button" @click.prevent="emit('click')">{{ btnText }}</button>
+    <button :class="isLight ? 'button button--light' : 'button'" @click.prevent="emit('click')">{{ btnText }}</button>
   </div>
 </template>
 
@@ -8,7 +8,8 @@
 const emit = defineEmits(['click'])
 
 defineProps<{
-  btnText: string
+  btnText: string,
+  isLight?: boolean
 }>()
 
 </script>
@@ -17,6 +18,12 @@ defineProps<{
 .button {
   display: block;
   margin: 0 auto;
-  border: 1px solid gray
+  border: 1px solid gray;
+
+  &--light {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+  }
 }
 </style>

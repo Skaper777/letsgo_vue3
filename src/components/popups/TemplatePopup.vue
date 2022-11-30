@@ -35,5 +35,15 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss">
-
+.popup {
+  position: absolute;
+  left: calc(50% - 15em);
+  top: 9em;
+  background: #1a1a1a;
+  width: 30em;
+  border-radius: 10px;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  padding: 1.2em;
+}
 </style>

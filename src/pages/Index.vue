@@ -1,8 +1,19 @@
 <template>
   <div class="container">
     <div class="events-container">
-      <EventsList title="Events" :events="events" @listFunc="joinEvent" />
-      <EventsList title="My events" :events="myEvents" isMyList @listFunc="leaveEvent" />
+      <EventsList 
+        title="Events" 
+        :events="events" 
+        :alone="!myEvents.length"
+        @listFunc="joinEvent" 
+      />
+      <EventsList 
+        title="My events" 
+        :events="myEvents" 
+        :alone="!events.length"
+        isMyList 
+        @listFunc="leaveEvent" 
+      />
     </div>    
   </div>
 </template>

@@ -34,5 +34,6 @@ function eventHandler() {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+  background: rgba(0, 0, 0, .4);
 }
 </style>
