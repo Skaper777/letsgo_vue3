@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import AppButton from '../ui/Button.vue'
-import SignUpPopup from '../popups/SignUpPopup.vue'
-import eventBus from '../../utils/eventBus'
+import AppButton from '@/components/ui/Button.vue'
+import SignUpPopup from '@/components/popups/SignUpPopup.vue'
+import eventBus from '@/utils/eventBus'
 
 function openSignUpPopup() {
   eventBus.emit('openPopup')
