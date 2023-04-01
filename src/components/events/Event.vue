@@ -1,9 +1,13 @@
 <template>
-  <div class="event">
+  <div class="event mb2 p15">
     <h3>{{event.title}}</h3>
     <p>Type: {{event.type}}</p>
-    <p>Members count: {{event.members}}</p>
-    <AppButton @click="eventHandler" :btnText="myList ? 'Leave' : 'Join'" />
+    <p class="mb1">Members count: {{event.members}}</p>
+    <AppButton 
+      @click="eventHandler" 
+      :btnText="myList ? 'Leave' : 'Join'" 
+      isLight
+    />
   </div>
 </template>
 
@@ -32,8 +36,6 @@ function eventHandler() {
   border: 1px solid grey;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
   background: rgba(0, 0, 0, .4);
 }
 </style>

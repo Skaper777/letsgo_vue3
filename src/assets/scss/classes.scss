@@ -1,11 +1,81 @@
+.m0Auto {
+  margin: 0 auto;
+} 
+
 .mb05 {
   margin-bottom: $space-05;
 }
 .mb1 {
   margin-bottom: $space-1;
 }
+.mb15 {
+  margin-bottom: $space-15;
+}
+.mb2 {
+  margin-bottom: $space-2;
+}
+.mb3 {
+  margin-bottom: $space-3;
+}
+.mb4 {
+  margin-bottom: $space-4;
+}
+
+.mt05 {
+  margin-top: $space-05;
+}
 .mt1 {
   margin-top: $space-1;
+}
+.mt15 {
+  margin-top: $space-15;
+}
+.mt2 {
+  margin-top: $space-2;
+}
+.mt3 {
+  margin-top: $space-3;
+}
+.mt4 {
+  margin-top: $space-4;
+}
+
+.mr05 {
+  margin-right: $space-05;
+}
+.mr1 {
+  margin-right: $space-1;
+}
+.mr15 {
+  margin-right: $space-15;
+}
+.mr2 {
+  margin-right: $space-2;
+}
+.mr3 {
+  margin-right: $space-3;
+}
+.mr4 {
+  margin-right: $space-4;
+}
+
+.ml05 {
+  margin-left: $space-05;
+}
+.ml1 {
+  margin-left: $space-1;
+}
+.ml15 {
+  margin-left: $space-15;
+}
+.ml2 {
+  margin-left: $space-2;
+}
+.ml3 {
+  margin-left: $space-3;
+}
+.ml4 {
+  margin-left: $space-4;
 }
 
 .p05 {
@@ -27,6 +97,94 @@
   padding: $space-4;
 }
 
+.pb05 {
+  padding-bottom: $space-05;
+}
+.pb1 {
+  padding-bottom: $space-1;
+}
+.pb15 {
+  padding-bottom: $space-15;
+}
+.pb2 {
+  padding-bottom: $space-2;
+}
+.pb3 {
+  padding-bottom: $space-3;
+}
+.pb4 {
+  padding-bottom: $space-4;
+}
+
+.pt05 {
+  padding-top: $space-05;
+}
+.pt1 {
+  padding-top: $space-1;
+}
+.pt15 {
+  padding-top: $space-15;
+}
+.pt2 {
+  padding-top: $space-2;
+}
+.pt3 {
+  padding-top: $space-3;
+}
+.pt4 {
+  padding-top: $space-4;
+}
+
+.pr05 {
+  padding-right: $space-05;
+}
+.pr1 {
+  padding-right: $space-1;
+}
+.pr15 {
+  padding-right: $space-15;
+}
+.pr2 {
+  padding-right: $space-2;
+}
+.pr3 {
+  padding-right: $space-3;
+}
+.pr4 {
+  padding-right: $space-4;
+}
+
+.pl05 {
+  padding-left: $space-05;
+}
+.pl1 {
+  padding-left: $space-1;
+}
+.pl15 {
+  padding-left: $space-15;
+}
+.pl2 {
+  padding-left: $space-2;
+}
+.pl3 {
+  padding-left: $space-3;
+}
+.pl4 {
+  padding-left: $space-4;
+}
+
 .paragraph075 {
-  font-size: $font-075;
+  font-size: $font-size-075;
+}
+.paragraph1 {
+  font-size: $font-size-1;
+}
+.paragraph15 {
+  font-size: $font-size-15;
+}
+.paragraph2 {
+  font-size: $font-size-2;
+}
+.paragraph3 {
+  font-size: $font-size-3;
 }

@@ -19,7 +19,7 @@ defineProps<{
   display: block;
   margin: 0 auto;
   border: 1px solid gray;
-  padding: .7em 1em;
+  padding: .5em 1em;
   border-radius: 10px;
     
   &--light {

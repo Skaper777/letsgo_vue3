@@ -1,5 +1,9 @@
 <template>
-  <div :class="alone ? 'events-list events-list--alone' : 'events-list'" v-if="events.length">
+  <div 
+    class="events-list"
+    :class="{alone: 'events-list events-list--alone'}" 
+    v-if="events.length"
+  >
     <h2>{{ props.title }}</h2>
     <ul v-if="events.length">
       <li v-for="event in events" :key="event.id">  

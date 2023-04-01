@@ -1,10 +1,14 @@
 <template>
   <teleport to='body'>
-    <div class="popup p15" v-if="isShow">
-      <h3 class="mb1">Hello!</h3>
-      <button class="popup-close" @click="isShow = false"></button>
+    <div class="popup" v-if="isShow">
+      <div class="popup__overlay" @click="isShow = false">
+      </div>
+      <div class="popup__inner p15">
+        <h3 class="mb1">Hello!</h3>
+        <button class="popup__inner-close" @click="isShow = false"></button>
 
-      <slot></slot>
+        <slot></slot>
+      </div>
     </div>
   </teleport>  
 </template>
@@ -38,39 +42,57 @@ onBeforeUnmount(() => {
 <style lang="scss">
 .popup {
   position: absolute;
-  left: calc(50% - 15em);
-  top: 9em;
-  background: #1a1a1a;
-  width: 30em;
-  border-radius: 10px;
-  border: 1px solid grey;
-  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 
-  &-close {
-    width: 20px;
-    height: 20px;
-    box-sizing: border-box;
+  &__overlay {
+    cursor: pointer;
     position: absolute;
-    right: 1.2em;
-    top: 1.2em;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0 , 0, .8);
+  }
 
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
+  &__inner {
+    z-index: 2;
+    position: fixed;
+    left: calc(50% - 15em);
+    top: 9em;
+    background: #1a1a1a;
+    width: 30em;
+    border-radius: 10px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+
+    &-close {
       width: 20px;
-      height: 2px;
-      background: white;
-    }
+      height: 20px;
+      box-sizing: border-box;
+      position: absolute;
+      right: 1.2em;
+      top: 1.2em;
 
-    &::after {
-      transform: rotate(45deg);
-    }
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 2px;
+        background: white;
+      }
 
-    &::before {
-      transform: rotate(-45deg);
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
     }
   }
 }

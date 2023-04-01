@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pt4 pb3">
     <div class="events-container">
       <EventsList 
         title="Events" 
