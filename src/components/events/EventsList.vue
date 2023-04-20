@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import Event from './Event.vue'
-import { EventItem } from '../../types/index'
+import Event from './EventCard.vue'
+import { EventItem } from '@/store/eventsStore/types'
 
 const props = defineProps({
   alone: {

@@ -1,8 +1,9 @@
 <template>
-  <div class="event mb2 p15">
-    <h3>{{event.title}}</h3>
-    <p>Type: {{event.type}}</p>
-    <p class="mb1">Members count: {{event.members}}</p>
+  <div class="event-card mb2 p15">
+    <h3>{{ event.title }}</h3>
+    <p>Type: {{ event.type }}</p>
+    <p>Members count: {{ event.members }}</p>
+    <p class="mb1">Date: {{ dateTime(event.date) }}</p>
     <AppButton 
       @click="eventHandler" 
       :btnText="myList ? 'Leave' : 'Join'" 
@@ -12,8 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import type { EventItem } from '../../types'
+import { EventItem } from '@/store/eventsStore/types'
 import AppButton from '../ui/Button.vue'
+import moment from 'moment'
 
 interface Props {
   event: EventItem,
@@ -23,6 +25,10 @@ interface Props {
 const emit = defineEmits(['eventHandler'])
 defineProps<Props>()
 
+function dateTime(value: Date): string {
+  return moment(value).format('DD.MM.YY')
+}
+
 function eventHandler() {
   return emit('eventHandler')
 }
@@ -30,7 +36,7 @@ function eventHandler() {
 </script>
 
 <style scoped lang="scss">
-.event {
+.event-card {
   display: block;
   min-width: 250px;
   border: 1px solid grey;

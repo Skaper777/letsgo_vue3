@@ -3,13 +3,13 @@
     <div class="events-container">
       <EventsList 
         title="Events" 
-        :events="events" 
-        :alone="!myEvents.length"
+        :events="filteredByUser" 
+        :alone="!user.events.length"
         @listFunc="joinEvent" 
       />
       <EventsList 
         title="My events" 
-        :events="myEvents" 
+        :events="user.events" 
         :alone="!events.length"
         isMyList 
         @listFunc="leaveEvent" 
@@ -19,13 +19,20 @@
 </template>
 
 <script lang="ts" setup>
-import { useEventsStore } from '../store/index'
+import { computed } from 'vue'
+import { useEventsStore } from '../store/eventsStore/eventsStore'
+import { useUserStore } from '../store/userStore/userStore'
 import { storeToRefs } from 'pinia'
 import EventsList from '../components/events/EventsList.vue'
+import { EventItem } from '@/store/eventsStore/types'
 
 const { events } = storeToRefs(useEventsStore())
-const { myEvents } = storeToRefs(useEventsStore())
-const { joinEvent, leaveEvent } = useEventsStore()
+const { user } = storeToRefs(useUserStore())
+const { joinEvent, leaveEvent } = useUserStore()
+
+const filteredByUser = computed(() => {
+  return events.value.filter((event) => event.id !== user.value.events.find((userEvent: EventItem) => userEvent.id === event.id)?.id)
+})
 
 </script>
 

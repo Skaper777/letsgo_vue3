@@ -3,9 +3,15 @@
     <div class="login-popup">
       <Input 
         class="mb1"
-        v-model="firstName"
-        :error="firstNameValidation(firstName)"
+        v-model="userForm.name"
+        :error="firstNameValidation(userForm.name)"
         label="Name"
+      />
+      <Input 
+        class="mb2"
+        v-model="userForm.email"
+        :error="emailValidation(userForm.email)"
+        label="Email"
       />
       <Button 
         btnText="Sign Up" 
@@ -17,22 +23,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import Template from './TemplatePopup.vue'
 import Button from '@/components/ui/Button.vue'
 import Input from '@/components/ui/Input.vue'
 import eventBus from '@/utils/eventBus'
+import { storeToRefs } from 'pinia'
+import { firstNameValidation, emailValidation } from '@/utils/validations'
+import { useUserStore } from '@/store/userStore/userStore'
 
+const { userForm } = storeToRefs(useUserStore())
 
-function firstNameValidation(value: string): string {
-  if (value.length && value.length < 2) return 'Too short'
-  return ''
+function signUp(): void {
+  eventBus.emit('closePopup')
 }
 
-const firstName = ref<string>('ss')
-
-function signUp() {
-  eventBus.emit('closePopup')
+function validateForm() {
+  // return !firstNameValidation(firstName.value).length && !emailValidation(email.value).length
 }
 
 </script>
